@@ -2,6 +2,29 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular-route.min.js')
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+    script(src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js')
+    script(src='javascripts/script.js')
+    link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css')
+    link(rel='stylesheet', href='stylesheets/style.css')
   body
-    block content
+    nav.navbar.navbar-inverse.navbar-fixed-top(role="navigation")
+        div.container-fluid
+            button.navbar-toggle(type='button',data-toggle='collapse',data-target='#myNavbar')
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+            div.collapse.navbar-collapse#myNavbar
+                ul.nav.navbar-nav
+                    li: a(href="/") Home
+                    li: a(href="/examples") Examples
+                    li: a(href="/about") About
+                    li: a(href="/contact") Contact
+                    li: a(href="/404") 404
+                ul.nav.navbar-nav.navbar-right
+                    li: a(href="/")
+                            span.glyphicon.glyphicon-log-in
+                            text  Login
+  block content
