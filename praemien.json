@@ -1,0 +1,75 @@
+[ {
+  "id": 34534535,
+  "setId": 6401,
+  "name": "Angebot 1",
+  "machine": "TX1",
+  "color": {
+    "black": 500,
+    "red": 100,
+    "white": 100,
+    "blue": 100,
+    "yellow": 100,
+    "cream": 100
+  },
+  "prize": 29.99
+},
+  {
+  "id": 73432941,
+  "setId": 6402,
+  "name": "Angebot 2",
+  "machine": "TX2",
+  "color": {
+    "black": 500,
+    "red": 100,
+    "white": 100,
+    "blue": 100,
+    "yellow": 100,
+    "cream": 100
+  },
+  "prize": 39.99
+},
+  {
+  "id": 78844567,
+  "setId": 6403,
+  "name": "Angebot 3",
+  "machine": "TX3",
+  "color": {
+    "black": 500,
+    "red": 100,
+    "white": 100,
+    "blue": 100,
+    "yellow": 100,
+    "cream": 100
+  },
+  "prize": 49.99
+},
+  {
+  "id": 98704323,
+  "setId": 6404,
+  "name": "Angebot 4",
+  "machine": "TX4",
+  "color": {
+    "black": 500,
+    "red": 100,
+    "white": 100,
+    "blue": 100,
+    "yellow": 100,
+    "cream": 100
+  },
+  "prize": 59.99
+},
+  {
+  "id": 75434261,
+  "setId": 6405,
+  "name": "Angebot 5",
+  "machine": "TX5",
+  "color": {
+    "black": 500,
+    "red": 100,
+    "white": 100,
+    "blue": 100,
+    "yellow": 100,
+    "cream": 100
+  },
+  "prize": 69.99
+}]
