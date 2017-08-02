@@ -2,3 +2,12 @@ extends layout
 
 block content
     .main(style='display: absolute;justify-content: center;align-items: center;') MrJingle´s Page
+        if data
+            table.w3-table.w3-bordered
+                tr
+                    th setId
+                    th name
+                each item, i in data
+                    tr
+                        td #{item.setId}
+                        td #{item.name}  
