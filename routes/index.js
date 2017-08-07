@@ -14,7 +14,7 @@ router.get('/', function (req, res, next) {
         console.log("Connected correctly to server");
 
         // Get the documents collection
-        var collection = db.collection('user');
+        var collection = db.collection('schlafattacken');
 
         // Insert some documents
 //        collection.insertMany([
@@ -27,7 +27,7 @@ router.get('/', function (req, res, next) {
 //        });
 
         // Find some documents
-        collection.find({}).toArray(function (err, docs) {
+        collection.find({ "person" : "Becks" }).toArray(function (err, docs) {
             assert.equal(err, null);
             console.log("Found the following records");
             console.log(docs)

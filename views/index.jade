@@ -2,14 +2,27 @@ extends layout
 
 block content
     script(src='javascripts/script.js')
-    .main(style='display: absolute;justify-content: center;align-items: center;') MrJingle´s Page
+    #main(style='display: none;')
         if data
             table.table
                 tr
-                    th setId
-                    th name
+                    th Datum
+                    th Person
+                    th Zustand
+                    th Dauer
+                    th Notiz  
                 each item, i in data
                     tr
-                        td #{item.setId}
-                        td #{item.name}
-               button(onclick='notifyMe()') Notify me!
+                        td #{item.datum}
+                        td #{item.person}
+                        td #{item.zustand}
+                        td #{item.dauer}
+                        td #{item.notitz}
+                tr
+                    td
+                        .newrow x
+                    td
+                    td
+                    td
+                    td
+            button(onclick='notifyMe()') Notify me!
