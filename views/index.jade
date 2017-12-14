@@ -6,21 +6,26 @@ block content
         if data
             table.table
                 tr
-                    th Datum
-                    th Person
-                    th Zustand
-                    th Dauer
-                    th Notiz  
+                    th positionStartX
+                    th positionEndX
+                    th positionStartY
+                    th positionEndY
+                    th startTime
+                    th endTime
+                    th Text
                 each item, i in data
                     tr
-                        td #{item.datum}
-                        td #{item.person}
-                        td #{item.zustand}
-                        td #{item.dauer}
-                        td #{item.notitz}
+                        td #{item.positionStartX}
+                        td #{item.positionEndX}
+                        td #{item.positionStartY}
+                        td #{item.positionEndY}
+                        td #{item.startTime}
+                        td #{item.endTime}
+                        td #{item.text}
                 tr
+                    td.newrow hardcoded newrow Test 
                     td
-                        .newrow xy
+                    td
                     td
                     td
                     td
