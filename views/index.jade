@@ -23,8 +23,13 @@ block content
                         td #{item.endTime}
                         td #{item.text}
                 tr
-                    td.newrow hardcoded newrow Test 
-                    td
+                form.form-inline(action='/tryGet',method='GET')
+                    td.newrow.form-group hardcoded newrow Test 
+                        label(for='formdataget') GET something
+                        input.form-control(type='text',name='formdataget',placeholder='come GET some')
+                        button.btn.btn-default(type='submit',value='submit') Submit
+                    pre Output: #{formdataget}
+                    td 
                     td
                     td
                     td

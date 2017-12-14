@@ -27,6 +27,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/index', index);
+
+// catch functions BB
+app.get('/tryGet', function (req, res) {
+    // Prepare output in JSON format
+    var response = {
+        incomingGet: req.query.formdataget
+    };
+    console.log(response);
+    //res.end(JSON.stringify(response));
+    res.render('index', { formdataget: req.query.formdataget });
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
