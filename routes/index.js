@@ -16,7 +16,7 @@ router.get('/', function (req, res, next) {
 
     // 1 = load data from local file
     // 2 = load data from database
-    var option = 2;
+    var option = 1;
     
     switch (option) {
 
