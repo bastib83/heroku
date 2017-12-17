@@ -29,6 +29,10 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/index', index);
 
+app.use('/tryGet', index);
+app.use('/tryPost', index);
+
+
 // catch functions BB
 app.get('/tryGet', function (req, res) {
     // Prepare output in JSON format
@@ -36,8 +40,19 @@ app.get('/tryGet', function (req, res) {
         incomingGet: req.query.formdataget
     };
     console.log(response);
-    //res.end(JSON.stringify(response));
+    res.end(JSON.stringify(response));
+    //res.send(req.query.formdataget);
     res.render('index', { formdataget: req.query.formdataget });
+});
+
+app.post('/tryPost', bodyParser.urlencoded({extended: false}), function (req, res) {
+    // Prepare output in JSON format
+    var response = {
+        IncomingPost: req.body.formdatapost
+    };
+    console.log(response);
+    res.end(JSON.stringify(response));
+    res.render('index', { formdatapost: req.body.formdatapost });
 });
 
 // catch 404 and forward to error handler

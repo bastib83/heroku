@@ -3,6 +3,22 @@ extends layout
 block content
     script(src='javascripts/script.js')
     #main(style='display: none;')
+        p
+            div dataGET: #{dataGET}
+            div dataPOST: #{dataPOST}
+        form.form-inline(action='/tryGet',method='GET')
+            div.newrow.form-group
+            label(for='formdataget') GET something
+            input.form-control(type='text',name='formdataget',placeholder='come GET some')
+            button.btn.btn-default(type='submit',value='submit') Submit
+            div formdataget-Output: #{formdataget}
+        p
+        form.form-inline(action='/tryPost',method='POST')
+            div.newrow.form-group
+            label(for='formdatapost') POST something
+            input.form-control(type='text',name='formdatapost',placeholder='come POST some')
+            button.btn.btn-default(type='submit',value='submit') Submit
+            div formdatapost-Output: #{formdatapost}
         if data
             table.table
                 tr
@@ -23,16 +39,11 @@ block content
                         td #{item.endTime}
                         td #{item.text}
                 tr
-                form.form-inline(action='/tryGet',method='GET')
-                    td.newrow.form-group hardcoded newrow Test 
-                        label(for='formdataget') GET something
-                        input.form-control(type='text',name='formdataget',placeholder='come GET some')
-                        button.btn.btn-default(type='submit',value='submit') Submit
-                        pre Output: #{formdataget}
-                    td 
-                    td
-                    td
-                    td
-                    td
-                    td
+                    td 1
+                    td 2
+                    td 3
+                    td 4
+                    td 5
+                    td 6
+                    td 7
             button(onclick='notifyMe()') Notify me!

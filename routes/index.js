@@ -14,6 +14,12 @@ var url = 'mongodb://admin:pa22w0rd@ds062919.mlab.com:62919/mrj1ngles';
 /* GET home page. */
 router.get('/', function (req, res, next) {
 
+    var InfoObjects;
+    var dataGet = req.query.formdataget;
+    var dataPost = req.body.formdatapost;
+            
+    console.log("formdataget: "+req.query.formdataget); 
+    console.log("formdatapost: "+req.body.formdatapost);
     // 1 = load data from local file
     // 2 = load data from database
     var option = 1;
@@ -24,7 +30,7 @@ router.get('/', function (req, res, next) {
             fs.readFile("./InfoObjects.json", 'utf8', function (err, data) {
                 InfoObjects = JSON.parse(data);
                 console.log('GET index + Prizes');
-                res.render('index', {title: 'Home-Local', data: InfoObjects});
+                res.render('index', {title: 'Home-Local', data: InfoObjects, dataGET: dataGet, dataPOST: dataPost});
             });
             break;
 
@@ -49,18 +55,18 @@ router.get('/', function (req, res, next) {
                 // Find some documents
                 collection.find().toArray(function (err, docs) {
                     assert.equal(err, null);
-                    console.log("Found the following records");
-                    console.log(docs)
-                    res.render('index', {title: 'Home-fromDB', data: docs});
+                    InfoObjects = docs;
+                    //console.log("Found the following records");
+                    //console.log(docs);
+                    res.render('index', {title: 'Home-fromDB', data: InfoObjects, dataGET: dataGet, dataPOST: dataPost});
                 });
                 db.close();
             });
             break;
 
         default:
+            res.render('index', {title: 'Home-empty', data: InfoObjects, dataGET: dataGet, dataPOST: dataPost});
     }
-
-
 });
 
 module.exports = router;
