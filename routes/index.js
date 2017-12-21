@@ -23,14 +23,13 @@ router.get('/', function (req, res, next) {
     
     // 1 = load data from local file
     // 2 = load data from database
-    var option = 1;
+    var option = 2;
     
     switch (option) {
 
         case 1:
             fs.readFile("./InfoObjects.json", 'utf8', function (err, data) {
                 InfoObjects = JSON.parse(data);
-                console.log('GET index + Prizes');
                 res.render('index', {title: 'Home-Local', data: InfoObjects, dataGET: dataArray});
             });
             break;
@@ -39,7 +38,6 @@ router.get('/', function (req, res, next) {
             MongoClient.connect(url, function (err, db) {
                 assert.equal(null, err);
                 console.log("Connected correctly to server");
-
                 // Get the documents collection
                 var collection = db.collection('infoObjects');
 
@@ -59,14 +57,14 @@ router.get('/', function (req, res, next) {
                     InfoObjects = docs;
                     //console.log("Found the following records");
                     //console.log(docs);
-                    res.render('index', {title: 'Home-fromDB', data: InfoObjects, dataGET: dataGet, dataPOST: dataPost});
+                    res.render('index', {title: 'Home-fromDB', data: InfoObjects, dataGET: dataArray});
                 });
                 db.close();
             });
             break;
 
         default:
-            res.render('index', {title: 'Home-empty', data: InfoObjects, dataGET: dataGet, dataPOST: dataPost});
+            res.render('index', {title: 'Home-empty', data: InfoObjects, dataGET: dataArray});
     }
 });
 

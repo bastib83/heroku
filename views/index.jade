@@ -12,7 +12,6 @@ block content
             div endTime: #{dataGET[5]}
             div Text: #{dataGET[6]}
         p
-        if data
         form.form-inline(action='/',method='GET')
             table.table
                 tr
@@ -23,15 +22,16 @@ block content
                     th startTime
                     th endTime
                     th Text
-                each item, i in data
-                    tr
-                        td #{item.positionStartX}
-                        td #{item.positionEndX}
-                        td #{item.positionStartY}
-                        td #{item.positionEndY}
-                        td #{item.startTime}
-                        td #{item.endTime}
-                        td #{item.text} 
+                if data        
+                    each item, i in data
+                        tr
+                            td #{item.positionStartX}
+                            td #{item.positionEndX}
+                            td #{item.positionStartY}
+                            td #{item.positionEndY}
+                            td #{item.startTime}
+                            td #{item.endTime}
+                            td #{item.text} 
                 tr
                     td 
                         input.form-control(type='text',name='StartX',placeholder='StartX')
@@ -47,5 +47,5 @@ block content
                         input.form-control(type='text',name='endTime',placeholder='endTime')
                     td 
                         input.form-control(type='text',name='Text',placeholder='Text')      
-                tr asd
-            button.btn.btn-default(type='submit',value='submit') Submit    
+                tr
+            button.btn.btn-default(type='submit',value='submit') Add InfoObject    
