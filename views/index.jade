@@ -4,21 +4,16 @@ block content
     script(src='javascripts/script.js')
     #main(style='display: none;')
         p
-            div dataGET: #{dataGET}
-            div dataPOST: #{dataPOST}
+            div formdataget: #{dataGET}
+            div formdataget2: #{dataGet2}
         form.form-inline(action='/tryGet',method='GET')
             div.newrow.form-group
             label(for='formdataget') GET something
             input.form-control(type='text',name='formdataget',placeholder='come GET some')
+            input.form-control(type='text',name='formdataget2',placeholder='come GET some2')
             button.btn.btn-default(type='submit',value='submit') Submit
             div formdataget-Output: #{formdataget}
         p
-        form.form-inline(action='/tryPost',method='POST')
-            div.newrow.form-group
-            label(for='formdatapost') POST something
-            input.form-control(type='text',name='formdatapost',placeholder='come POST some')
-            button.btn.btn-default(type='submit',value='submit') Submit
-            div formdatapost-Output: #{formdatapost}
         if data
             table.table
                 tr

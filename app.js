@@ -40,9 +40,10 @@ app.get('/tryGet', function (req, res) {
         incomingGet: req.query.formdataget
     };
     console.log(response);
+    console.log(req.query.formdataget2);
     res.end(JSON.stringify(response));
     //res.send(req.query.formdataget);
-    res.render('index', { formdataget: req.query.formdataget });
+    res.render('index', { formdataget: req.query.formdataget, formdataget2: req.query.formdataget2 });
 });
 
 app.post('/tryPost', bodyParser.urlencoded({extended: false}), function (req, res) {

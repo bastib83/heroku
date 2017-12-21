@@ -16,10 +16,11 @@ router.get('/', function (req, res, next) {
 
     var InfoObjects;
     var dataGet = req.query.formdataget;
-    var dataPost = req.body.formdatapost;
+    var dataGet2 = req.query.formdataget2;
             
     console.log("formdataget: "+req.query.formdataget); 
     console.log("formdatapost: "+req.body.formdatapost);
+    
     // 1 = load data from local file
     // 2 = load data from database
     var option = 1;
@@ -30,7 +31,7 @@ router.get('/', function (req, res, next) {
             fs.readFile("./InfoObjects.json", 'utf8', function (err, data) {
                 InfoObjects = JSON.parse(data);
                 console.log('GET index + Prizes');
-                res.render('index', {title: 'Home-Local', data: InfoObjects, dataGET: dataGet, dataPOST: dataPost});
+                res.render('index', {title: 'Home-Local', data: InfoObjects, dataGET: dataGet, dataGet2: dataGet2});
             });
             break;
 
