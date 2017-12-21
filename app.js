@@ -32,30 +32,6 @@ app.use('/index', index);
 app.use('/tryGet', index);
 app.use('/tryPost', index);
 
-
-// catch functions BB
-app.get('/tryGet', function (req, res) {
-    // Prepare output in JSON format
-    var response = {
-        incomingGet: req.query.formdataget
-    };
-    console.log(response);
-    console.log(req.query.formdataget2);
-    res.end(JSON.stringify(response));
-    //res.send(req.query.formdataget);
-    res.render('index', { formdataget: req.query.formdataget, formdataget2: req.query.formdataget2 });
-});
-
-app.post('/tryPost', bodyParser.urlencoded({extended: false}), function (req, res) {
-    // Prepare output in JSON format
-    var response = {
-        IncomingPost: req.body.formdatapost
-    };
-    console.log(response);
-    res.end(JSON.stringify(response));
-    res.render('index', { formdatapost: req.body.formdatapost });
-});
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

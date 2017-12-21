@@ -15,11 +15,11 @@ var url = 'mongodb://admin:pa22w0rd@ds062919.mlab.com:62919/mrj1ngles';
 router.get('/', function (req, res, next) {
 
     var InfoObjects;
-    var dataGet = req.query.formdataget;
-    var dataGet2 = req.query.formdataget2;
-            
-    console.log("formdataget: "+req.query.formdataget); 
-    console.log("formdatapost: "+req.body.formdatapost);
+    var dataArray = [];
+    dataArray.push(req.query.StartX, req.query.EndX, req.query.StartY, req.query.EndY, req.query.startTime, req.query.endTime, req.query.Text);
+    
+    console.log("req.query: "+req.query); 
+    console.log("dataArray: "+dataArray); 
     
     // 1 = load data from local file
     // 2 = load data from database
@@ -31,7 +31,7 @@ router.get('/', function (req, res, next) {
             fs.readFile("./InfoObjects.json", 'utf8', function (err, data) {
                 InfoObjects = JSON.parse(data);
                 console.log('GET index + Prizes');
-                res.render('index', {title: 'Home-Local', data: InfoObjects, dataGET: dataGet, dataGet2: dataGet2});
+                res.render('index', {title: 'Home-Local', data: InfoObjects, dataGET: dataArray});
             });
             break;
 

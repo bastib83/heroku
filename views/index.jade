@@ -4,15 +4,13 @@ block content
     script(src='javascripts/script.js')
     #main(style='display: none;')
         p
-            div formdataget: #{dataGET}
-            div formdataget2: #{dataGet2}
-        form.form-inline(action='/tryGet',method='GET')
-            div.newrow.form-group
-            label(for='formdataget') GET something
-            input.form-control(type='text',name='formdataget',placeholder='come GET some')
-            input.form-control(type='text',name='formdataget2',placeholder='come GET some2')
-            button.btn.btn-default(type='submit',value='submit') Submit
-            div formdataget-Output: #{formdataget}
+            div StartX: #{dataGET[0]}
+            div EndX: #{dataGET[1]}
+            div StartY: #{dataGET[2]}
+            div EndY: #{dataGET[3]}
+            div startTime: #{dataGET[4]}
+            div endTime: #{dataGET[5]}
+            div Text: #{dataGET[6]}
         p
         if data
             table.table
@@ -34,11 +32,21 @@ block content
                         td #{item.endTime}
                         td #{item.text}
                 tr
-                    td 1
-                    td 2
-                    td 3
-                    td 4
-                    td 5
-                    td 6
-                    td 7
+                form.form-inline(action='/',method='GET')
+                    div.newrow.form-group
+                    td 
+                        input.form-control(type='text',name='StartX',placeholder='StartX')
+                    td 
+                        input.form-control(type='text',name='EndX',placeholder='EndX')
+                    td 
+                        input.form-control(type='text',name='StartY',placeholder='StartY')
+                    td  
+                        input.form-control(type='text',name='EndY',placeholder='EndY')
+                    td 
+                        input.form-control(type='text',name='startTime',placeholder='startTime')
+                    td 
+                        input.form-control(type='text',name='endTime',placeholder='endTime')
+                    td 
+                        input.form-control(type='text',name='Text',placeholder='Text')
+                    button.btn.btn-default(type='submit',value='submit') Submit    
             button(onclick='notifyMe()') Notify me!
