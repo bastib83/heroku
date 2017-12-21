@@ -13,6 +13,7 @@ block content
             div Text: #{dataGET[6]}
         p
         if data
+        form.form-inline(action='/',method='GET')
             table.table
                 tr
                     th positionStartX
@@ -30,10 +31,8 @@ block content
                         td #{item.positionEndY}
                         td #{item.startTime}
                         td #{item.endTime}
-                        td #{item.text}
+                        td #{item.text} 
                 tr
-                form.form-inline(action='/',method='GET')
-                    div.newrow.form-group
                     td 
                         input.form-control(type='text',name='StartX',placeholder='StartX')
                     td 
@@ -47,6 +46,6 @@ block content
                     td 
                         input.form-control(type='text',name='endTime',placeholder='endTime')
                     td 
-                        input.form-control(type='text',name='Text',placeholder='Text')
-                    button.btn.btn-default(type='submit',value='submit') Submit    
-            button(onclick='notifyMe()') Notify me!
+                        input.form-control(type='text',name='Text',placeholder='Text')      
+                tr asd
+            button.btn.btn-default(type='submit',value='submit') Submit    
