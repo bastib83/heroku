@@ -12,7 +12,7 @@ block content
             div endTime: #{dataGET[5]}
             div Text: #{dataGET[6]}
         p
-        form.form-inline(action='/',method='GET')
+        form.form-inline(action='/insertObject',method='GET')
             table.table
                 tr
                     th positionStartX
@@ -24,7 +24,7 @@ block content
                     th Text
                 if data        
                     each item, i in data
-                        tr
+                        tr.text-left
                             td #{item.positionStartX}
                             td #{item.positionEndX}
                             td #{item.positionStartY}

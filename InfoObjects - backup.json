@@ -1,0 +1,82 @@
+[{
+      "positionStartX":"20.0",
+      "positionEndY":"0.0",
+      "positionStartY":"0.0",
+      "positionEndX":"25.0",
+      "startTime":"0.0",
+      "endTime":"2.0",
+      "text":"Büro 1"
+   },
+   {
+      "positionStartX":"25.0",
+      "positionEndY":"0.0",
+      "positionStartY":"0.0",
+      "positionEndX":"32.0",
+      "startTime":"2.0",
+      "endTime":"3.0",
+      "text":"Büro 1"
+   },
+   {
+      "positionStartX":"0.0",
+      "positionEndY":"0.0",
+      "positionStartY":"0.0",
+      "positionEndX":"-45.0",
+      "startTime":"0.0",
+      "endTime":"15.0",
+      "text":"Test: Moving Left"
+   },
+   {
+      "positionStartX":"32.0",
+      "positionEndY":"0.0",
+      "positionStartY":"0.0",
+      "positionEndX":"60.0",
+      "startTime":"3.0",
+      "endTime":"5.0",
+      "text":"Büro 1"
+   },
+   {
+      "positionStartX":"60.0",
+      "positionEndY":"0.0",
+      "positionStartY":"0.0",
+      "positionEndX":"150.0",
+      "startTime":"5.0",
+      "endTime":"7.0",
+      "text":"Büro 1"
+   },
+   {
+      "positionStartX":"23.0",
+      "positionEndY":"14.0",
+      "positionStartY":"35.0",
+      "positionEndX":"60.0",
+      "startTime":"14.0",
+      "endTime":"16.0",
+      "text":"Kopierer"
+   },
+   {
+      "positionStartX":"320.0",
+      "positionEndY":"0.0",
+      "positionStartY":"0.0",
+      "positionEndX":"270.0",
+      "startTime":"5.0",
+      "endTime":"12.0",
+      "text":"Meetingraum"
+   },
+   {
+      "positionStartX":"12.0",
+      "positionEndY":"5.0",
+      "positionStartY":"5.0",
+      "positionEndX":"12.0",
+      "startTime":"23.0",
+      "endTime":"37.0",
+      "text":"Telekomzugang"
+   },
+   {
+      "positionStartX":"-10.0",
+      "positionEndY":"0.0",
+      "positionStartY":"0.0",
+      "positionEndX":"20.0",
+      "startTime":"19.0",
+      "endTime":"24.0",
+      "text":"Büro 6"
+   }
+]

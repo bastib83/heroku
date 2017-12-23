@@ -1,40 +1,70 @@
 var express = require('express');
 var router = express.Router();
-//until DB is connected
 var fs = require("fs");
-//end
-
 var MongoClient = require('mongodb').MongoClient
         , assert = require('assert');
 // mongo ds062919.mlab.com:62919/mrj1ngles -u <dbuser> -p <dbpassword> 
-// Connection URL
 var url = 'mongodb://admin:pa22w0rd@ds062919.mlab.com:62919/mrj1ngles';
 
+var InfoObjects;
+var dataArray = [];
+
+
+// a middleware function with no mount path. This code is executed for every request to the router
+router.use(function (req, res, next) {
+    console.log('Time:', Date.now());   
+    next();
+});
+
+router.get('/insertObject', function (req, res, next) {
+
+    dataArray = [];
+    dataArray.push(req.query.StartX, req.query.EndX, req.query.StartY, req.query.EndY, req.query.startTime, req.query.endTime, req.query.Text);
+
+    var infoObject = {
+        "positionStartX": req.query.StartX,
+        "positionEndY": req.query.EndY,
+        "positionStartY": req.query.StartY,
+        "positionEndX": req.query.EndX,
+        "startTime": req.query.startTime,
+        "endTime": req.query.endTime,
+        "text": req.query.Text
+    };
+
+    InfoObjects.push(infoObject);
+
+    fs.writeFile("./InfoObjects.json", JSON.stringify(InfoObjects), 'utf8', (err) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        ;
+    });
+
+    res.render('index', {title: 'Home', data: InfoObjects, dataGET: dataArray});
+
+});
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
 
-    var InfoObjects;
-    var dataArray = [];
-    dataArray.push(req.query.StartX, req.query.EndX, req.query.StartY, req.query.EndY, req.query.startTime, req.query.endTime, req.query.Text);
-    
-    console.log("req.query: "+req.query); 
-    console.log("dataArray: "+dataArray); 
+    console.log("Getting Homepage");
     
     // 1 = load data from local file
     // 2 = load data from database
-    var option = 2;
-    
+    var option = 1;
+
     switch (option) {
 
         case 1:
+            console.log("Reading from File");
             fs.readFile("./InfoObjects.json", 'utf8', function (err, data) {
                 InfoObjects = JSON.parse(data);
-                res.render('index', {title: 'Home-Local', data: InfoObjects, dataGET: dataArray});
             });
             break;
 
         case 2:
+            console.log("Reading from Database");
             MongoClient.connect(url, function (err, db) {
                 assert.equal(null, err);
                 console.log("Connected correctly to server");
@@ -55,17 +85,18 @@ router.get('/', function (req, res, next) {
                 collection.find().toArray(function (err, docs) {
                     assert.equal(err, null);
                     InfoObjects = docs;
-                    //console.log("Found the following records");
-                    //console.log(docs);
-                    res.render('index', {title: 'Home-fromDB', data: InfoObjects, dataGET: dataArray});
                 });
                 db.close();
             });
+
             break;
 
         default:
-            res.render('index', {title: 'Home-empty', data: InfoObjects, dataGET: dataArray});
     }
+    console.log("InfoObjects = " + JSON.stringify(InfoObjects));
+    console.log("dataArray = " + dataArray);
+    
+    res.render('index', {title: 'Home', data: InfoObjects, dataGET: dataArray});
 });
 
 module.exports = router;
