@@ -12,7 +12,7 @@ var dataArray = [];
 
 // a middleware function with no mount path. This code is executed for every request to the router
 router.use(function (req, res, next) {
-    console.log('Time:', Date.now());   
+    console.log('Time:', Date.now());
     next();
 });
 
@@ -49,7 +49,7 @@ router.get('/insertObject', function (req, res, next) {
 router.get('/', function (req, res, next) {
 
     console.log("Getting Homepage");
-    
+
     // 1 = load data from local file
     // 2 = load data from database
     var option = 1;
@@ -95,8 +95,16 @@ router.get('/', function (req, res, next) {
     }
     console.log("InfoObjects = " + JSON.stringify(InfoObjects));
     console.log("dataArray = " + dataArray);
-    
+
     res.render('index', {title: 'Home', data: InfoObjects, dataGET: dataArray});
 });
 
+router.get('/InfoObjects.json', function (req, res, next) {
+
+    console.log("InfoObjects.json");
+    fs.readFile("./InfoObjects.json", 'utf8', function (err, data) {
+        InfoObjects = JSON.parse(data);
+        res.send(InfoObjects);
+    });  
+});
 module.exports = router;
