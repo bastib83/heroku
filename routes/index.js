@@ -123,7 +123,7 @@ router.get('/InfoObjects.json', function (req, res, next) {
     fs.readFile("./InfoObjects.json", 'utf8', function (err, data) {
         infoObjects = JSON.parse(data);
         res.send(infoObjects);
+        next();
     });
-    next();
 });
 module.exports = router;
