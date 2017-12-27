@@ -5,7 +5,7 @@ block content
     #main(style='display: none;')
         p
             img.img-responsive.center-block(src="/images/360-grad-video.png")
-            div StartX: #{dataGET[0]} EndX: #{dataGET[1]}              StartY: #{dataGET[2]}             EndY: #{dataGET[3]}             startTime: #{dataGET[4]}             endTime: #{dataGET[5]}             Text: #{dataGET[6]}
+            div StartX: #{dataGET[0]}  EndX: #{dataGET[1]}  StartY: #{dataGET[2]}  EndY: #{dataGET[3]}  startTime: #{dataGET[4]}  endTime: #{dataGET[5]}  Text: #{dataGET[6]}
         p
         form.form-inline(action='/insertObject',method='GET')
             table.table
@@ -20,13 +20,14 @@ block content
                 if data        
                     each item, i in data
                         tr.text-left
-                            td #{item.positionStartX}
+                            td #{item.positionStartX} 
                             td #{item.positionEndX}
                             td #{item.positionStartY}
                             td #{item.positionEndY}
                             td #{item.startTime}
                             td #{item.endTime}
                             td #{item.text} 
+                                button.btn.btn-default(action='/deleteInfoObject',method='GET')
                 tr
                     td 
                         input.form-control(type='text',name='StartX',placeholder='StartX')

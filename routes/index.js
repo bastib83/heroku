@@ -99,6 +99,12 @@ router.get('/', function (req, res, next) {
     res.render('index', {title: 'Home', data: InfoObjects, dataGET: dataArray});
 });
 
+router.get('/deleteInfoObject', function (req, res, next) {
+
+    console.log("deleteInfoObject");
+    console.log(InfoObjects.text);
+});
+
 router.get('/InfoObjects.json', function (req, res, next) {
 
     console.log("InfoObjects.json");
