@@ -27,7 +27,8 @@ block content
                             td #{item.startTime}
                             td #{item.endTime}
                             td #{item.text} 
-                                button.btn.btn-default(action='/deleteInfoObject',method='GET')
+                                form.form-inline(action='/deleteInfoObject',method='POST')
+                                    button.btn.btn-default(type='text', name='delObject', value='#{item.text}') del #{i}!
                 tr
                     td 
                         input.form-control(type='text',name='StartX',placeholder='StartX')
