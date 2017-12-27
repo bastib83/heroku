@@ -5,13 +5,7 @@ block content
     #main(style='display: none;')
         p
             img.img-responsive.center-block(src="/images/360-grad-video.png")
-            div StartX: #{dataGET[0]}
-            div EndX: #{dataGET[1]}
-            div StartY: #{dataGET[2]}
-            div EndY: #{dataGET[3]}
-            div startTime: #{dataGET[4]}
-            div endTime: #{dataGET[5]}
-            div Text: #{dataGET[6]}
+            div StartX: #{dataGET[0]} EndX: #{dataGET[1]}              StartY: #{dataGET[2]}             EndY: #{dataGET[3]}             startTime: #{dataGET[4]}             endTime: #{dataGET[5]}             Text: #{dataGET[6]}
         p
         form.form-inline(action='/insertObject',method='GET')
             table.table
