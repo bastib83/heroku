@@ -118,8 +118,6 @@ router.use('/deleteInfoObject', function (req, res, next) {
 });
 
 router.get('/InfoObjects.json', function (req, res, next) {
-
-    console.log("infoObjects.json");
     fs.readFile("./InfoObjects.json", 'utf8', function (err, data) {
         infoObjects = JSON.parse(data);
         res.send(infoObjects);
