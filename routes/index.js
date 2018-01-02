@@ -124,4 +124,10 @@ router.get('/InfoObjects.json', function (req, res, next) {
         next();
     });
 });
+
+router.get('/VR-Tour.apk', function (req, res, next) {
+    var file = './public/apk/VR-Tour.apk';
+    res.download(file); // Set disposition and send it.
+});
+
 module.exports = router;
