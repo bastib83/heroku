@@ -1,5 +1,5 @@
 {
-  "name": "heroku",
+  "name": "VR-Tour-Backend",
   "version": "0.0.7",
   "private": true,
   "scripts": {
