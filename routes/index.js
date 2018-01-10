@@ -100,19 +100,22 @@ router.use('/deleteInfoObject', function (req, res, next) {
     var response = {
         IncomingPost: req.body.delObject
     };
-
+    console.log(response);
     console.log("Writing to File");
     fs.readFile("./InfoObjects.json", 'utf8', function (err, data) {
         json = JSON.parse(data);
         // https://stackoverflow.com/questions/14400609/remove-json-entry-by-value
         // nekman answered Jan  18 '13 at 14:22  
-        var filtered = json.filter(function (object) {
-            return object.text !== req.body.delObject;
-        });
+        if (req.body.delObject > -1) {
+            json.splice(req.body.delObject, 1);
+        }
+//        var filtered = json.filter(function (object) {
+//            return object.text !== req.body.delObject;
+//        });
         fs.writeFile('./InfoObjects.json', JSON.stringify(filtered), function (err) {
             if (err)
                 throw err;
-        })
+        });
     });
     res.render('index', {title: 'Home', data: infoObjects, dataGET: dataArray});
 });
