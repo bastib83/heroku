@@ -3,10 +3,14 @@ extends layout
 block content
     script(src='javascripts/script.js')
     #main(style='display: none;')
+        
+        div#counter
+        button#reset Reset!
+    
         p
             img.img-responsive.center-block.hotspotdesigner(src="/images/360-grad-video.png")
             div StartX: #{dataGET[0]}  EndX: #{dataGET[1]}  StartY: #{dataGET[2]}  EndY: #{dataGET[3]}  startTime: #{dataGET[4]}  endTime: #{dataGET[5]}  Text: #{dataGET[6]}
-        p
+        p 
         form.form-inline(action='/insertObject',method='GET')
             table.table
                 tr
