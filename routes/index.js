@@ -128,4 +128,17 @@ router.get('/VR-Tour.apk', function (req, res, next) {
     res.download(file); // Set disposition and send it.
 });
 
+
+//-----
+var socket = io.connect(window.location.hostname);
+
+socket.on('timer', function (data) {
+    $('#counter').html(data.countdown);
+});
+
+$('#reset').click(function() {
+    socket.emit('reset');
+});
+
+
 module.exports = router;
